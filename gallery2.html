@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(223, 221, 221);
+}
+
+
+.navbar {
+  overflow: hidden;
+  background-color: rgb(44, 43, 43);
+  /* position: sticky;
+  position: -webkit-sticky; */
+  top:0;
+  border-radius: 3px;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: rgb(11, 131, 17);
+  color: white;
+  border: 0px solid black;
+  border-radius: 3px;
+  margin-left: 1px;
+}
+
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  display: -ms-flexbox; /* IE 10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE 10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  -ms-flex: 50%; /* IE 10 */
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+@media screen and (max-width: 400px) {
+     .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+
+</style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="index.html" class="active">Home</a>
+    <a href="about5.html">About us</a>
+    <a href="#" onclick="myContact()" >Contact us</a>
+    <a href="https://forms.gle/bjseGAGvbF2c9gfL6" class="right">Register Now</a>
+  </div>
+
+  <script>
+    function myContact() {
+      alert(" Welcome to Pathshala Classes!\n For more information kindly contact us through..\n \n Email : pathshalaclasses001@gmail.com\n Contact no. : +91 8607516403\n Address : Near Kharanti Road Buwana ");
+     }
+    </script>
+<!-- Header -->
+<div class="header" id="myHeader">
+  <h1>Pathshala Gallery</h1>
+  <p style ="">Click on the buttons to change the images view mode.</p>
+  <button class="btn" onclick="one()">Full Image</button>
+  <button class="btn active" onclick="two()">Two Image</button>
+  <button class="btn" onclick="four()">Four Image</button>
+</div>
+
+<!-- Photo Grid -->
+<div class="row"> 
+     <div class="column">
+          <img src="class1.jpg" style="width:100%">
+          <img src="class2.jpg" style="width:100%">
+          <!-- <img src="class3.jpg" style="width:100%"> -->
+          <img src="class4.jpg" style="width:100%">
+          <img src="class5.jpg" style="width:100%">
+          <img src="class6.jpg" style="width:100%">
+          <img src="class7.jpg" style="width:100%">
+        </div>
+        <div class="column">
+          <img src="class8.jpg" style="width:100%">
+          <img src="class9.jpg" style="width:100%">
+          <img src="class10.jpg" style="width:100%">
+          <img src="class11.jpg" style="width:100%">
+          <img src="class12.jpg" style="width:100%">
+          <!-- <img src="class13.jpg" style="width:100%"> -->
+        </div>  
+        <div class="column">
+          <img src="class14.jpg" style="width:100%">
+          <img src="class15.jpg" style="width:100%">
+          <img src="class16.jpg" style="width:100%">
+          <!-- <img src="class17.jpg" style="width:100%"> -->
+          <img src="class18.jpg" style="width:100%">
+        
+        </div>
+       
+</div>
+
+<script>
+// Get the elements with class="column"
+var elements = document.getElementsByClassName("column");
+
+// Declare a loop variable
+var i;
+
+// Full-width images
+function one() {
+    for (i = 0; i < elements.length; i++) {
+    elements[i].style.msFlex = "100%";  // IE10
+    elements[i].style.flex = "100%";
+  }
+}
+
+// Two images side by side
+function two() {
+  for (i = 0; i < elements.length; i++) {
+    elements[i].style.msFlex = "50%";  // IE10
+    elements[i].style.flex = "50%";
+  }
+}
+
+// Four images side by side
+function four() {
+  for (i = 0; i < elements.length; i++) {
+    elements[i].style.msFlex = "25%";  // IE10
+    elements[i].style.flex = "25%";
+  }
+}
+
+// Add active class to the current button (highlight it)
+var header = document.getElementById("myHeader");
+var btns = header.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+</body>
+</html>
